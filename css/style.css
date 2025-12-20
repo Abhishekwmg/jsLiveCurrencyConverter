@@ -1,18 +1,165 @@
-/* Error: Undefined variable.
- *   ,
- * 4 |     $value: map-get($breakpoints, $breakpoint);
- *   |                     ^^^^^^^^^^^^
- *   '
- *   scss\variables\_mixins.scss 4:21  respond()
- *   scss\style.scss 24:5              root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 4 \2502      $value: map-get($breakpoints, $breakpoint);\d\a   \2502                      ^^^^^^^^^^^^\a   \2575 \a   scss\\variables\\_mixins.scss 4:21  respond()\a   scss\\style.scss 24:5              root stylesheet";
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  background-color: #0f172a;
+  font-family: "Raleway", sans-serif;
+}
+
+header {
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 2px solid #e5e7eb;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  header {
+    display: none;
+  }
+}
+header .header-container {
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+header .header-container .logo img {
+  width: 45px;
+}
+header .header-container nav ul {
+  width: 400px;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+header .header-container nav ul li {
+  padding: 5px;
+}
+header .header-container nav ul li a {
+  text-decoration: none;
+  color: #9ca3af;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px;
+}
+header .header-container nav ul li a:hover {
+  color: #e5e7eb;
+  border-bottom: 2px solid #22c55e;
+}
+header .header-container .city-select .choose-city a {
+  text-decoration: none;
+  color: #6ec6af;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid rgba(17, 17, 17, 0.205);
+  padding: 10px;
+  border-radius: 25px;
+  transition: all 0.1s ease;
+}
+header .header-container .city-select .choose-city a:hover {
+  border-bottom: 2px solid #6ec6af;
+  background: #6ec6af;
+  border: 2px solid #6ec6af;
+  color: #fff;
+}
+header .header-container .city-select .choose-city span {
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 50%;
+  background: rgba(216, 210, 210, 0.432);
+  padding: 5px;
+}
+header .header-container .city-select .choose-city span:hover {
+  color: #fff;
+}
+header .header-container .city-select .city-dropdown {
+  display: none;
+}
+header .header-container .timezone {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+header .header-container .timezone .timezone-logo {
+  font-size: 20px;
+  border-radius: 50%;
+  background: rgba(216, 210, 210, 0.432);
+  padding: 5px;
+}
+header .header-container .timezone .timezone-stat p {
+  font-family: "Arimo", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px 0;
+}
+header .header-container .timezone .timezone-stat .timezone-date {
+  color: #e5e7eb;
+}
+header .header-container .timezone .timezone-stat .timezone-curr-time {
+  color: #6ec6af;
+}
+
+dialog .overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 15px;
+  min-width: 600px;
+  height: 150px;
+  background-color: #9ca3af;
+}
+dialog .overlay span {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.1s ease;
+}
+dialog .overlay span:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+dialog .overlay p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+dialog .overlay .dialog-form {
+  position: relative;
+  margin-top: 20px;
+}
+dialog .overlay .dialog-form label {
+  font-size: 12px;
+  color: #000;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  transition: all 0.1s ease;
+}
+dialog .overlay .dialog-form input {
+  width: 400px;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+dialog .overlay .dialog-form input:focus-visible + label {
+  font-size: 10px;
+  top: 5px;
+  left: 16px;
+}
+
+/*# sourceMappingURL=style.css.map */

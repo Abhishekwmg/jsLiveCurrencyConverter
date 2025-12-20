@@ -1,15 +1,30 @@
-@use "breakpoints";
+@use "./breakpoints";
 
-@mixin respond($breakpoint) {
-    $value: map-get($breakpoints, $breakpoint);
+// @mixin respond($breakpoint) {
+//     $value: map-get(breakpoints.$breakpoints, $breakpoint);
 
-    @if $value {
-        @media (min-width: $value) {
+//     @if $value {
+//         @media (min-width: $value) {
+//             @content;
+//         }
+//     }
+
+//     @else {
+//         @error "No breakpoint found for `#{$breakpoint}`";
+//     }
+// }
+
+@mixin respond-between($from, $to) {
+    $min: map-get(breakpoints.$breakpoints, $from);
+    $max: map-get(breakpoints.$breakpoints, $to) - 1px;
+
+    @if $min and $max {
+        @media (min-width: $min) and (max-width: $max) {
             @content;
         }
     }
 
     @else {
-        @error "No breakpoint found for `#{$breakpoint}`";
+        @error "Invalid breakpoint range: #{$from} → #{$to}";
     }
 }
