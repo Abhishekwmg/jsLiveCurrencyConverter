@@ -32,7 +32,7 @@ export const cities = [
     { "city": "Mumbai", "country": "India" },
     { "city": "Delhi", "country": "India" },
 
-    { "city": "São Paulo", "country": "Brazil" },
+    { "city": "Sao Paulo", "country": "Brazil" },
     { "city": "Rio de Janeiro", "country": "Brazil" },
     { "city": "Buenos Aires", "country": "Argentina" },
     { "city": "Mexico City", "country": "Mexico" },

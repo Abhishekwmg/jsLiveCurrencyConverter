@@ -27,8 +27,10 @@
                 </ul>
             </nav>
             <div class="city-select">
-                <p class="choose-city"><a href=""><span><i class="fa-solid fa-location-arrow"></i></span>Choose your
-                        city</a></p>
+                <button type="button" class="choose-city"><a href=""><span><i
+                                class="fa-solid fa-location-arrow"></i></span>Choose
+                        your
+                        city</a></button>
                 <select class="city-dropdown">
                     <option value=""></option>
                 </select>
@@ -44,13 +46,16 @@
             </div>
         </div>
     </header>
-    <dialog open class="dialog">
+    <dialog id="dialog-box" open class="dialog">
         <div class="overlay">
-            <span><i class="fa-solid fa-xmark"></i></span>
+            <span class="close-modal"><i class="fa-solid fa-xmark"></i></span>
             <p>We need your city to customize your experience</p>
             <div class="dialog-form">
-                <input type="text">
+                <input id="city-input" type="text">
                 <label for="">Type your city, e.g New York, Mumbai</label>
+                <div class="suggestions">
+                    <p class="suggested-cities"></p>
+                </div>
             </div>
         </div>
 
