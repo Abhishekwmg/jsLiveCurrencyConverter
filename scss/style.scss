@@ -1,3 +1,145 @@
+@use "./variables/breakpoints";
+@use "./variables//mixins";
+@use "./variables/colors";
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: green;
+    background-color: colors.$bg-primary;
+    font-family: "Raleway", sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 2px solid colors.$text-primary;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    @include mixins.respond(tablet) {
+        display: none;
+    }
+
+    .header-container {
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .logo {
+            img {
+                width: 45px;
+            }
+        }
+
+        nav {
+
+            ul {
+                width: 400px;
+                height: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                list-style: none;
+
+                li {
+                    padding: 5px;
+
+                    a {
+                        text-decoration: none;
+                        color: colors.$text-secondary;
+                        font-size: 18px;
+                        font-weight: 400;
+                        padding: 10px;
+
+                        &:hover {
+                            color: colors.$text-primary;
+                            border-bottom: 2px solid colors.$success;
+                        }
+                    }
+
+                    &:hover {
+                        // padding-top: 10px;
+                    }
+
+                }
+            }
+        }
+
+        .city-select {
+
+            .choose-city {
+
+                a {
+                    text-decoration: none;
+                    color: #6ec6af;
+                    font-size: 14px;
+                    font-weight: 600;
+                    border: 2px solid rgba(17, 17, 17, 0.205);
+                    padding: 10px;
+                    border-radius: 25px;
+                    transition: all 0.1s ease;
+
+                    &:hover {
+                        border-bottom: 2px solid #6ec6af;
+                        background: #6ec6af;
+                        border: 2px solid #6ec6af;
+                        color: #fff;
+                    }
+                }
+
+                span {
+                    margin-right: 10px;
+                    font-size: 16px;
+                    border-radius: 50%;
+                    background: rgba(216, 210, 210, 0.432);
+                    padding: 5px;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+
+            .city-dropdown {
+                display: none;
+            }
+        }
+
+        .timezone {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+            .timezone-logo {
+                font-size: 20px;
+                border-radius: 50%;
+                background: rgba(216, 210, 210, 0.432);
+                padding: 5px;
+            }
+
+            .timezone-stat {
+                p {
+                    font-family: "Arimo", sans-serif;
+                    font-size: 14px;
+                    font-weight: 600;
+                    padding: 2px 0;
+                }
+
+                .timezone-date {
+                    color: #00000096;
+                }
+
+                .timezone-curr-time {
+                    color: #6ec6af;
+                }
+            }
+        }
+    }
 }

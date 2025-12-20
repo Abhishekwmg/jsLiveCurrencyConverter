@@ -6,10 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <h1>Currency Converter</h1>;
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="imgs/assets/logo.png" alt="page logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Bank</a></li>
+                    <li><a href="">Currency</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="city-select">
+                <p class="choose-city"><a href=""><span><i class="fa-solid fa-location-arrow"></i></span>Choose your
+                        city</a></p>
+                <select class="city-dropdown">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="timezone">
+                <div class="timezone-logo">
+                    <span><i class="fa-regular fa-calendar"></i></span>
+                </div>
+                <div class="timezone-stat">
+                    <p class="timezone-date">Sunday, 20.12.2025</p>
+                    <p class="timezone-curr-time">23:13:32 UTC+3(TBL)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="converter">
+        <h1>Currency Convert</h1>
+        <p>Today, 20-12-2025 23:15:42 UTC+3 (TBT)</p>
+        <form action="POST">
+            <div>
+                <div class="source">
+                    <label for="from">From</label>
+                    <select name="" id="">
+                        <option value="usa">USD - Dollar <span></span></option>
+                        <option value="usa">INR</option>
+                        <option value="usa">UAE</option>
+                        <option value="usa">JAP</option>
+                        <option value="usa">CHN</option>
+                        <option value="usa">AUD</option>
+                    </select>
+                    <div class="source-price">
+                        <label for="">$</label>
+                        <input type="number">
+                    </div>
+                </div>
+                <button type="button">revert</button>
+                <div class="target">
+                    <label for="to">To</label>
+                    <select name="" id="">
+                        <option value="usa">INR (Country Logo)</option>
+                        <option value="usa">USD</option>
+                        <option value="usa">UAE</option>
+                        <option value="usa">JAP</option>
+                        <option value="usa">CHN</option>
+                        <option value="usa">AUD</option>
+                    </select>
+                    <div class="target-price">
+                        <label for="">$</label>
+                        <input type="number">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <section class="currency-graph">Currency Graph</section>
+    <footer></footer>
+    <script type="module" src="app.js"></script>
 </body>
 
 </html>
