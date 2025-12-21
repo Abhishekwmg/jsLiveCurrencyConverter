@@ -22,7 +22,9 @@ const dialogBox = document.querySelector('#dialog-box');
 const chooseCityBtn = document.querySelector('.choose-city');
 const closeModal = document.querySelector('.close-modal')
 const cityInput = document.querySelector("#city-input");
+const suggestedCities = document.querySelector('.suggested-cities');
 const suggestions = document.querySelector('.suggestions')
+
 
 
 chooseCityBtn.addEventListener('click', (e) => {
@@ -35,16 +37,32 @@ closeModal.addEventListener('click', () => {
 })
 // pageLogo.src = countryList[19].country_img;
 
+const citiesSuggestion = [];
+
 cityInput.addEventListener('input', (e) => {
     let enteredCity = e.target.value.toLowerCase();
-    let suggestedCity = cities.filter((city) => city.city.toLowerCase().startsWith(enteredCity));
+    let suggestedCity = cities.filter((city) => city.city.toLowerCase().startsWith(enteredCity) || city.country.toLowerCase().startsWith(enteredCity));
 
-    const [city] = suggestedCity;
+    // const [city] = suggestedCity;
+
+
+    suggestions.innerHTML = "";
+    if (!enteredCity) return;
+
     suggestedCity.map((city) => {
-        let cityNames = `<p class="suggested-cities">${city.city}</p>`
-        return suggestions.append(cityNames)
+        suggestions.innerHTML += `<p class="suggested-cities">${city.city}, ${city.country}</p>`
     })
-    // suggestedCities.textContent = city.city;
-    // console.log(city.city);
-    // suggestedCities.textContent = k
-})  
+
+})
+
+suggestions.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('suggested-cities')) return;
+
+    const selectCity = e.target.textContent;
+    console.log("clicked", selectCity);
+    cityInput.value = selectCity;
+    chooseCityBtn.innerHTML = `<span><i
+                                class="fa-solid fa-location-arrow"></i></span>${selectCity}
+                        </a>`;
+    dialogBox.close();
+})

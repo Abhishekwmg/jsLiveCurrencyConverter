@@ -216,6 +216,25 @@ dialog {
                     }
                 }
             }
+
+            .suggestions {
+                background: colors.$btn-secondary-hover;
+                border-radius: 10px;
+                position: absolute;
+                width: 100%;
+                overflow-x: hidden;
+
+                .suggested-cities {
+                    font-size: 14px;
+                    font-weight: 500;
+                    padding: 5px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: colors.$btn-secondary-hover-two;
+                    }
+                }
+            }
         }
     }
 }

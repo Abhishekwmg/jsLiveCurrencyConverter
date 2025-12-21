@@ -1,5 +1,10 @@
 export const cities = [
     { "city": "New York", "country": "United States" },
+    { "city": "New Fort", "country": "United States" },
+    { "city": "New Wale", "country": "United States" },
+    { "city": "New Yankee", "country": "United States" },
+    { "city": "New Mustard", "country": "United States" },
+    { "city": "New Ford", "country": "United States" },
     { "city": "London", "country": "United Kingdom" },
     { "city": "Tokyo", "country": "Japan" },
     { "city": "Paris", "country": "France" },
