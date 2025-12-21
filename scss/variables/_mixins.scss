@@ -1,18 +1,18 @@
 @use "./breakpoints";
 
-// @mixin respond($breakpoint) {
-//     $value: map-get(breakpoints.$breakpoints, $breakpoint);
+@mixin respond($breakpoint) {
+    $value: map-get(breakpoints.$breakpoints, $breakpoint);
 
-//     @if $value {
-//         @media (min-width: $value) {
-//             @content;
-//         }
-//     }
+    @if $value {
+        @media (min-width: $value) {
+            @content;
+        }
+    }
 
-//     @else {
-//         @error "No breakpoint found for `#{$breakpoint}`";
-//     }
-// }
+    @else {
+        @error "No breakpoint found for `#{$breakpoint}`";
+    }
+}
 
 @mixin respond-between($from, $to) {
     $min: map-get(breakpoints.$breakpoints, $from);

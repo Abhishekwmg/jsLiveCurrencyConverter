@@ -56,8 +56,6 @@ header .header-container .city-select button.choose-city {
   background-color: transparent;
   outline: none;
   border: none;
-}
-header .header-container .city-select button.choose-city a {
   text-decoration: none;
   border: 2px solid rgba(17, 17, 17, 0.205);
   color: #6ec6af;
@@ -66,8 +64,9 @@ header .header-container .city-select button.choose-city a {
   padding: 10px;
   border-radius: 25px;
   transition: all 0.1s ease;
+  cursor: pointer;
 }
-header .header-container .city-select button.choose-city a:hover {
+header .header-container .city-select button.choose-city:hover {
   border-bottom: 2px solid #6ec6af;
   background: #6ec6af;
   border: 2px solid #6ec6af;
