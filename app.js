@@ -1,5 +1,6 @@
 import { countryList } from "./data/countries.js";
 import { cities } from "./data/cities.js";
+import { currency } from "./data/currency.js";
 
 // const options = {
 //     method: 'POST',
@@ -110,8 +111,8 @@ suggestions.addEventListener('click', (e) => {
 // setInterval(() => { timeZone() }, 1000);
 // timeZone();
 
-const dateEl = document.querySelector('.timezone-date');
-const timeEl = document.querySelector('.timezone-curr-time');
+const dateEl = document.querySelectorAll('.timezone-date');
+const timeEl = document.querySelectorAll('.timezone-curr-time');
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
     weekday: "long",
@@ -131,8 +132,16 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
 function updateTime() {
     const now = new Date();
 
-    dateEl.textContent = dateFormatter.format(now);
-    timeEl.textContent = timeFormatter.format(now);
+    dateEl.forEach((date) => {
+        date.textContent = dateFormatter.format(now);
+    })
+
+    timeEl.forEach((time) => {
+        time.textContent = timeFormatter.format(now)
+    })
+
+    // dateEl.textContent = dateFormatter.format(now);
+    // timeEl.textContent = timeFormatter.format(now);
 }
 
 setInterval(updateTime, 1000);
@@ -140,8 +149,12 @@ setInterval(updateTime, 1000);
 
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuOpen = document.querySelector('.menu-open');
+const closeMenu = document.querySelector('.close-menu');
 
 mobileMenu.addEventListener('click', (e) => {
     menuOpen.classList.add('show');
-    console.log("Clicked Menu Btn.")
+})
+
+closeMenu.addEventListener('click', (e) => {
+    menuOpen.classList.remove('show')
 })

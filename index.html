@@ -14,36 +14,37 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="logo">
-                <img src="imgs/assets/logo.png" alt="page logo">
-            </div>
             <div class="mobile-menu">
-                <span><i class="fa-solid fa-bars-staggered"></i></span>
-            </div>
-            <div class="menu-open">
-                <span class="close-menu"><i class="fa-solid fa-xmark"></i></span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Bank</a></li>
-                    <li><a href="">Currency</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="city-select">
-                <button type="button" class="choose-city"><span><i class="fa-solid fa-location-arrow"></i></span>Choose
-                    your
-                    city <i class="fa-solid fa-caret-down"></i></button>
-            </div>
-            <div class="timezone">
-                <div class="timezone-logo">
-                    <span><i class="fa-regular fa-calendar"></i></span>
+                <div class="logo">
+                    <img src="imgs/assets/logo.png" alt="page logo">
                 </div>
-                <div class="timezone-stat">
-                    <p class="timezone-date"></p>
-                    <p class="timezone-curr-time"></p>
+                <span><i class="fa-solid fa-bars-staggered"></i></span>
+                <div class="menu-open">
+                    <span class="close-menu"><i class="fa-solid fa-xmark"></i></span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Bank</a></li>
+                        <li><a href="">Currency</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="city-select">
+                    <button type="button" class="choose-city"><span><i
+                                class="fa-solid fa-location-arrow"></i></span>Choose
+                        your
+                        city <i class="fa-solid fa-caret-down"></i></button>
+                </div>
+                <div class="timezone">
+                    <div class="timezone-logo">
+                        <span><i class="fa-regular fa-calendar"></i></span>
+                    </div>
+                    <div class="timezone-stat">
+                        <p class="timezone-date"></p>
+                        <p class="timezone-curr-time"></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,35 +63,98 @@
 
     </dialog>
     <section class="converter">
-        <h1>Currency Convert</h1>
-        <p>Today, 20-12-2025 23:15:42 UTC+3 (TBT)</p>
-        <form action="POST">
-            <div>
+        <h1 class="curr-title">Currency Convert</h1>
+        <div class="live-timer">
+            <p class="timezone-date"></p>
+            <p class="timezone-curr-time"></p>
+        </div>
+        <div class="dropdown">
+            <div class="split-button-drops">
+                <div class="btn-wid">
+                    <button type="button">
+                        <p>USD - Dollar</p>
+                        <div class="moto">
+                            <img src="./imgs/country-icons/usa.png" alt="">
+                            <span>
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </div>
+                    </button>
+                    <div class="generate-country">
+                        <ul>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="revert"><span><i class="fa-solid fa-right-left"></i></span></div>
+                <div class="btn-wid">
+                    <button type="button">
+                        <p>USD - Dollar</p>
+                        <div class="moto">
+                            <img src="./imgs/country-icons/usa.png" alt="">
+                            <span>
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </div>
+                    </button>
+                    <div class="generate-country">
+                        <ul>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                            <li>ADO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <form action="GET" id="currency-form">
+            <div class="currency-window">
                 <div class="source">
-                    <label for="from">From</label>
-                    <select name="" id="">
-                        <option value="usa">USD - Dollar <span></span></option>
-                        <option value="usa">INR</option>
-                        <option value="usa">UAE</option>
-                        <option value="usa">JAP</option>
-                        <option value="usa">CHN</option>
-                        <option value="usa">AUD</option>
+                    <label class="from-text" for="from">From</label>
+                    <select name="from" id="from-dropdown">
+                        <option class="dropdown-options" value="usa">USD - Dollar <span><i
+                                    class="fa-solid fa-xmark"></i></span></option>
+                        <option class="dropdown-options" value="usa">INR</option>
+                        <option class="dropdown-options" value="usa">UAE</option>
+                        <option class="dropdown-options" value="usa">JAP</option>
+                        <option class="dropdown-options" value="usa">CHN</option>
+                        <option class="dropdown-options" value="usa">AUD</option>
                     </select>
                     <div class="source-price">
                         <label for="">$</label>
                         <input type="number">
                     </div>
                 </div>
-                <button type="button">revert</button>
+                <button type="button" class="revert-btn">revert</button>
                 <div class="target">
-                    <label for="to">To</label>
-                    <select name="" id="">
-                        <option value="usa">INR (Country Logo)</option>
-                        <option value="usa">USD</option>
-                        <option value="usa">UAE</option>
-                        <option value="usa">JAP</option>
-                        <option value="usa">CHN</option>
-                        <option value="usa">AUD</option>
+                    <label class="to-text" for="to">To</label>
+                    <select name="" id="to-dropdown">
+                        <option class="dropdown-options" value="usa">INR (Country Logo)</option>
+                        <option class="dropdown-options" value="usa">USD</option>
+                        <option class="dropdown-options" value="usa">UAE</option>
+                        <option class="dropdown-options" value="usa">JAP</option>
+                        <option class="dropdown-options" value="usa">CHN</option>
+                        <option class="dropdown-options" value="usa">AUD</option>
                     </select>
                     <div class="target-price">
                         <label for="">$</label>
@@ -98,7 +162,9 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </form> -->
+    </section>
+    <section class="custom-dropdown">
     </section>
     <section class="currency-graph">Currency Graph</section>
     <footer></footer>
