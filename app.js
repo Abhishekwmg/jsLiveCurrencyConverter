@@ -1,7 +1,5 @@
 import { countryList } from "./data/countries.js";
 import { cities } from "./data/cities.js";
-import { currency } from "./data/currency.js";
-
 // const options = {
 //     method: 'POST',
 //     headers: {
@@ -157,4 +155,19 @@ mobileMenu.addEventListener('click', (e) => {
 
 closeMenu.addEventListener('click', (e) => {
     menuOpen.classList.remove('show')
+})
+
+const sourceBtn = document.querySelector('#source-btn');
+const sourceCountryDropdown = document.querySelector('#source-country-dropdown');
+
+console.log(sourceBtn)
+
+sourceBtn.addEventListener('click', () => {
+    // sourceCountryDropdown.classList.add('show');
+    console.log("clicked")
+    if (sourceCountryDropdown.classList.contains("show")) {
+        sourceCountryDropdown.classList.remove("show")
+    } else {
+        sourceCountryDropdown.classList.add("show")
+    }
 })

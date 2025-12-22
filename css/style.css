@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -9,27 +10,33 @@ body {
   background-color: #0f172a;
   font-family: "Raleway", sans-serif;
 }
+
 body header {
   width: 100%;
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1803921569);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
 body header .header-container {
   padding: 20px 40px;
 }
+
 body header .header-container .mobile-menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 body header .header-container .mobile-menu span .fa-bars-staggered {
   font-size: 30px;
   color: #fff;
 }
+
 body header .header-container .mobile-menu .logo img {
   width: 45px;
 }
+
 body header .header-container .mobile-menu .menu-open {
   display: none;
   width: 300px;
@@ -45,6 +52,7 @@ body header .header-container .mobile-menu .menu-open {
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
 }
+
 body header .header-container .mobile-menu .menu-open .close-menu {
   padding: 10px;
   background: rgba(102, 105, 102, 0.4784313725);
@@ -53,13 +61,16 @@ body header .header-container .mobile-menu .menu-open .close-menu {
   width: 50px;
   display: block;
 }
+
 body header .header-container .mobile-menu .menu-open .close-menu .fa-xmark {
   font-size: 30px;
   color: #fff;
 }
+
 body header .header-container .mobile-menu .show {
   display: block;
 }
+
 body header .header-container .mobile-menu nav ul {
   width: 400px;
   height: inherit;
@@ -68,9 +79,11 @@ body header .header-container .mobile-menu nav ul {
   justify-content: space-between;
   list-style: none;
 }
+
 body header .header-container .mobile-menu nav ul li {
   padding: 5px;
 }
+
 body header .header-container .mobile-menu nav ul li a {
   text-decoration: none;
   color: #9ca3af;
@@ -78,10 +91,12 @@ body header .header-container .mobile-menu nav ul li a {
   font-weight: 400;
   padding: 10px;
 }
+
 body header .header-container .mobile-menu nav ul li a:hover {
   color: #e5e7eb;
   border-bottom: 2px solid #22c55e;
 }
+
 body header .header-container .mobile-menu .city-select button.choose-city {
   background-color: transparent;
   outline: none;
@@ -96,12 +111,14 @@ body header .header-container .mobile-menu .city-select button.choose-city {
   transition: all 0.1s ease;
   cursor: pointer;
 }
+
 body header .header-container .mobile-menu .city-select button.choose-city:hover {
   border-bottom: 2px solid #6ec6af;
   background: #6ec6af;
   border: 2px solid #6ec6af;
   color: #fff;
 }
+
 body header .header-container .mobile-menu .city-select button.choose-city span {
   margin-right: 10px;
   font-size: 16px;
@@ -109,36 +126,44 @@ body header .header-container .mobile-menu .city-select button.choose-city span 
   background: rgba(216, 210, 210, 0.432);
   padding: 5px;
 }
+
 body header .header-container .mobile-menu .city-select button.choose-city span:hover {
   color: #fff;
 }
+
 body header .header-container .mobile-menu .city-select .city-dropdown {
   display: none;
 }
+
 body header .header-container .mobile-menu .timezone {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
 }
+
 body header .header-container .mobile-menu .timezone .timezone-logo {
   font-size: 20px;
   border-radius: 50%;
   background: rgba(216, 210, 210, 0.432);
   padding: 5px;
 }
+
 body header .header-container .mobile-menu .timezone .timezone-stat p {
   font-family: "Arimo", sans-serif;
   font-size: 14px;
   font-weight: 600;
   padding: 2px 0;
 }
+
 body header .header-container .mobile-menu .timezone .timezone-stat .timezone-date {
   color: #e5e7eb;
 }
+
 body header .header-container .mobile-menu .timezone .timezone-stat .timezone-curr-time {
   color: #6ec6af;
 }
+
 body dialog .overlay {
   position: fixed;
   top: 50%;
@@ -153,6 +178,7 @@ body dialog .overlay {
   height: 150px;
   background-color: #9ca3af;
 }
+
 body dialog .overlay span {
   position: absolute;
   right: 10px;
@@ -161,19 +187,23 @@ body dialog .overlay span {
   color: #fff;
   transition: all 0.1s ease;
 }
+
 body dialog .overlay span:hover {
   color: #ef4444;
   transform: scale(1.1);
 }
+
 body dialog .overlay p {
   font-size: 18px;
   font-weight: 600;
   color: #fff;
 }
+
 body dialog .overlay .dialog-form {
   position: relative;
   margin-top: 20px;
 }
+
 body dialog .overlay .dialog-form label {
   font-size: 12px;
   color: #000;
@@ -182,6 +212,7 @@ body dialog .overlay .dialog-form label {
   left: 16px;
   transition: all 0.1s ease;
 }
+
 body dialog .overlay .dialog-form input {
   width: 400px;
   padding: 15px;
@@ -189,12 +220,14 @@ body dialog .overlay .dialog-form input {
   border: none;
   outline: none;
 }
-body dialog .overlay .dialog-form input:focus-visible + label {
+
+body dialog .overlay .dialog-form input:focus-visible+label {
   color: #6b7280;
   font-size: 10px;
   top: 1px;
   left: 16px;
 }
+
 body dialog .overlay .dialog-form .suggestions {
   background: #56667e;
   border-radius: 10px;
@@ -202,51 +235,62 @@ body dialog .overlay .dialog-form .suggestions {
   width: 100%;
   overflow-x: hidden;
 }
+
 body dialog .overlay .dialog-form .suggestions .suggested-cities {
   font-size: 14px;
   font-weight: 500;
   padding: 5px;
   cursor: pointer;
 }
+
 body dialog .overlay .dialog-form .suggestions .suggested-cities:hover {
   background: #3e4b5e;
 }
+
 body .converter {
   padding: 20px 40px;
 }
+
 body .converter .curr-title {
   font-size: 32px;
   font-weight: 600;
   color: #fff;
   padding: 10px 0;
 }
+
 body .converter .live-timer {
   display: flex;
   gap: 5px;
 }
+
 body .converter .live-timer .timezone-date {
   font-size: 12px;
   color: #fff;
   display: inline;
   font-family: "Arimo", sans-serif;
 }
+
 body .converter .live-timer .timezone-curr-time {
   font-size: 12px;
   color: #fff;
   font-family: "Arimo", sans-serif;
 }
+
 body .converter .dropdown {
   position: relative;
   width: 800px;
 }
+
 body .converter .dropdown .split-button-drops {
   display: flex;
   place-items: baseline;
   justify-content: space-between;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid {
   width: 350px;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid button {
   display: flex;
   align-items: center;
@@ -258,28 +302,39 @@ body .converter .dropdown .split-button-drops .btn-wid button {
   outline: none;
   color: white;
   padding: 10px 0;
+  cursor: pointer;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid button P {
   font-size: 18px;
   font-weight: 600;
   color: #fff;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid button .moto {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid button .moto img {
   width: 30px;
   border: 1px solid rgba(255, 255, 255, 0.1803921569);
   border-radius: 15px;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid button .moto span i {
   font-size: 10px;
   text-align: center;
 }
+
+body .converter .dropdown .split-button-drops .btn-wid .generate-country.show {
+  display: block;
+}
+
 body .converter .dropdown .split-button-drops .btn-wid .generate-country {
+  display: none;
   height: 120px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -287,9 +342,11 @@ body .converter .dropdown .split-button-drops .btn-wid .generate-country {
   scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
   margin-top: 10px;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid .generate-country ul {
   list-style-type: none;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li {
   font-size: 14px;
   color: white;
@@ -298,11 +355,13 @@ body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li {
   cursor: pointer;
   transition: all 0.1s ease;
 }
+
 body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li:hover {
   color: black;
   background-color: rgb(168, 166, 166);
   border-bottom: rgb(168, 166, 166);
 }
+
 body .converter .dropdown .split-button-drops .revert span {
   background: white;
   border-radius: 15px;
@@ -311,10 +370,12 @@ body .converter .dropdown .split-button-drops .revert span {
   transition: all 0.1s ease;
   cursor: pointer;
 }
+
 body .converter .dropdown .split-button-drops .revert span:hover {
   color: blue;
   transform: scale(1.1);
 }
+
 body .converter .dropdown .split-button-drops .revert:hover {
   transform: scale(1.1);
 }

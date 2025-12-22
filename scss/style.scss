@@ -10,6 +10,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     background-color: colors.$bg-primary;
     font-family: "Raleway", sans-serif;
@@ -130,9 +131,9 @@ body {
                                 }
                             }
 
-                            &:hover {
-                                // padding-top: 10px;
-                            }
+                            // &:hover {
+                            //     // padding-top: 10px;
+                            // }
 
                         }
                     }
@@ -429,6 +430,7 @@ body {
                         outline: none;
                         color: white;
                         padding: 10px 0;
+                        cursor: pointer;
 
                         P {
                             font-size: 18px;
@@ -456,7 +458,12 @@ body {
                         }
                     }
 
+                    .generate-country.show {
+                        display: block;
+                    }
+
                     .generate-country {
+                        display: none;
                         height: 120px;
                         overflow-y: scroll;
                         overflow-x: hidden;
@@ -484,6 +491,7 @@ body {
                         }
                     }
                 }
+
 
                 .revert {
 
