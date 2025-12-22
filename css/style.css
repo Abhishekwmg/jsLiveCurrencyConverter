@@ -18,7 +18,7 @@ header {
 }
 @media (min-width: 320px) and (max-width: 767px) {
   header {
-    display: none;
+    width: 100%;
   }
 }
 header .header-container {
@@ -27,8 +27,29 @@ header .header-container {
   align-items: center;
   justify-content: space-around;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  header .header-container {
+    justify-content: space-between;
+  }
+}
 header .header-container .logo img {
   width: 45px;
+}
+header .header-container .mobile-menu span .fa-bars-staggered {
+  font-size: 35px;
+  color: #fff;
+}
+header .header-container .menu-open {
+  display: none;
+  width: 70%;
+  height: calc(100vh - 50px);
+  background-color: red;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+header .header-container .show {
+  display: block;
 }
 header .header-container nav ul {
   width: 400px;
@@ -51,6 +72,11 @@ header .header-container nav ul li a {
 header .header-container nav ul li a:hover {
   color: #e5e7eb;
   border-bottom: 2px solid #22c55e;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  header .header-container nav {
+    display: none;
+  }
 }
 header .header-container .city-select button.choose-city {
   background-color: transparent;
@@ -85,6 +111,11 @@ header .header-container .city-select button.choose-city span:hover {
 header .header-container .city-select .city-dropdown {
   display: none;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  header .header-container .city-select {
+    display: none;
+  }
+}
 header .header-container .timezone {
   display: flex;
   align-items: center;
@@ -108,6 +139,11 @@ header .header-container .timezone .timezone-stat .timezone-date {
 }
 header .header-container .timezone .timezone-stat .timezone-curr-time {
   color: #6ec6af;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  header .header-container .timezone {
+    display: none;
+  }
 }
 
 dialog .overlay {

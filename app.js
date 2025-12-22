@@ -137,3 +137,11 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 // updateTime(); // run immediately
+
+const mobileMenu = document.querySelector('.mobile-menu');
+const menuOpen = document.querySelector('.menu-open');
+
+mobileMenu.addEventListener('click', (e) => {
+    menuOpen.classList.add('show');
+    console.log("Clicked Menu Btn.")
+})

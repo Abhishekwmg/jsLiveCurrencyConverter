@@ -22,7 +22,7 @@ header {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
     @include mixins.respond-between(mobile-sm, tablet) {
-        display: none;
+        width: 100%;
     }
 
     .header-container {
@@ -31,10 +31,38 @@ header {
         align-items: center;
         justify-content: space-around;
 
+        @include mixins.respond-between(mobile-sm, tablet) {
+            justify-content: space-between;
+        }
+
         .logo {
             img {
                 width: 45px;
             }
+        }
+
+        .mobile-menu {
+            span {
+                .fa-bars-staggered {
+                    font-size: 35px;
+                    color: #fff;
+                }
+            }
+        }
+
+        .menu-open {
+            display: none;
+            width: 70%;
+            height: calc(100vh - 50px);
+            background-color: red;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+        }
+
+        .show {
+            display: block;
         }
 
         nav {
@@ -68,6 +96,10 @@ header {
                     }
 
                 }
+            }
+
+            @include mixins.respond-between(mobile-sm, tablet) {
+                display: none;
             }
         }
 
@@ -110,6 +142,10 @@ header {
             .city-dropdown {
                 display: none;
             }
+
+            @include mixins.respond-between(mobile-sm, tablet) {
+                display: none;
+            }
         }
 
         .timezone {
@@ -140,6 +176,10 @@ header {
                 .timezone-curr-time {
                     color: #6ec6af;
                 }
+            }
+
+            @include mixins.respond-between(mobile-sm, tablet) {
+                display: none;
             }
         }
     }
