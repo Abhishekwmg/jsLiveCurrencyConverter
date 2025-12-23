@@ -150,10 +150,16 @@ const menuOpen = document.querySelector('.menu-open');
 const closeMenu = document.querySelector('.close-menu');
 
 mobileMenu.addEventListener('click', (e) => {
-    menuOpen.classList.add('show');
+    // menuOpen.classList.add('show')
+    if (menuOpen.classList.contains('show')) {
+        menuOpen.classList.remove('show')
+    } else {
+        menuOpen.classList.add('show')
+    }
 })
 
 closeMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
     menuOpen.classList.remove('show')
 })
 
