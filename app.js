@@ -165,8 +165,8 @@ closeMenu.addEventListener('click', (e) => {
 
 const sourceBtn = document.querySelector('#source-btn');
 const sourceCountryDropdown = document.querySelector('#source-country-dropdown');
+const currencyCountryList = document.querySelector('#currency-country-list');
 
-console.log(sourceBtn)
 
 sourceBtn.addEventListener('click', () => {
     // sourceCountryDropdown.classList.add('show');
@@ -176,4 +176,19 @@ sourceBtn.addEventListener('click', () => {
     } else {
         sourceCountryDropdown.classList.add("show")
     }
+
+    // currencyCountryList.innerHTML = "";
+
+    countryList.forEach((countries) => {
+        const { currency, country, country_img } = countries;
+        currencyCountryList.innerHTML += `<li>
+                                <p>${currency}</p>
+                                <span><img src=${country_img} alt=${country}></span>
+                            </li>`
+    })
+
+
+    // currencyCountryList.innerHTML = ``
 })
+
+//adding currency countries to the dropdown

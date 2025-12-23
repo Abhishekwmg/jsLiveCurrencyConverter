@@ -409,11 +409,11 @@ body {
         .dropdown {
             position: relative;
             width: 800px;
+            margin-top: 20px;
 
             .split-button-drops {
                 display: flex;
-                // align-items: center;
-                place-items: baseline;
+                align-items: center;
                 justify-content: space-between;
 
                 .btn-wid {
@@ -433,7 +433,7 @@ body {
                         width: 100%;
                         background: transparent;
                         border: none;
-                        border-bottom: 1px solid white;
+                        border-bottom: 1px solid #c9c6c6;
                         outline: none;
                         color: #000;
                         padding: 10px 0;
@@ -475,17 +475,14 @@ body {
                         overflow-y: scroll;
                         overflow-x: hidden;
                         scrollbar-width: thin;
-                        scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+                        scrollbar-color: rgba(66, 66, 66, 0.524) transparent;
                         margin-top: 10px;
 
                         ul {
                             list-style-type: none;
 
                             li {
-                                font-size: 14px;
-                                color: white;
-                                padding: 5px;
-                                border-bottom: 1px solid white;
+                                padding: 8px 0;
                                 cursor: pointer;
                                 transition: all 0.1s ease;
 
@@ -493,6 +490,22 @@ body {
                                     color: black;
                                     background-color: rgb(168, 166, 166);
                                     border-bottom: rgb(168, 166, 166);
+                                }
+
+                                p {
+                                    display: inline;
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    text-align: center;
+                                }
+
+                                span {
+                                    float: right;
+
+                                    img {
+                                        width: 30px;
+                                        margin-right: 12px;
+                                    }
                                 }
                             }
                         }
@@ -511,8 +524,15 @@ body {
                             outline: none;
                             width: 88%;
                             padding: 15px 0;
-                            font-size: 30px;
-                            color: red;
+                            font-size: 60px;
+                            font-weight: 100;
+                            color: #6ec6af;
+
+                            &::placeholder {
+                                color: rgba(85, 82, 82, 0.313);
+                                font-weight: 100;
+                            }
+
 
                         }
                     }
@@ -522,18 +542,18 @@ body {
                 .revert {
 
                     span {
-                        // width: 50px;
-                        // height: 100px;
-                        background: white;
-                        border-radius: 15px;
+                        background: #bababa97;
+                        border-radius: 20px;
                         padding: 5px;
-                        font-size: 12px;
+                        font-size: 20px;
                         transition: all 0.1s ease;
                         cursor: pointer;
+                        color: #fff;
 
                         &:hover {
-                            color: blue;
+                            color: #6ec6af;
                             transform: scale(1.1);
+                            background: #ffffff97;
                         }
 
                     }

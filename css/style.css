@@ -237,10 +237,11 @@ body .converter .live-timer .timezone-curr-time {
 body .converter .dropdown {
   position: relative;
   width: 800px;
+  margin-top: 20px;
 }
 body .converter .dropdown .split-button-drops {
   display: flex;
-  place-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 body .converter .dropdown .split-button-drops .btn-wid {
@@ -259,7 +260,7 @@ body .converter .dropdown .split-button-drops .btn-wid button {
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #c9c6c6;
   outline: none;
   color: #000;
   padding: 10px 0;
@@ -294,17 +295,14 @@ body .converter .dropdown .split-button-drops .btn-wid .generate-country {
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+  scrollbar-color: rgba(66, 66, 66, 0.524) transparent;
   margin-top: 10px;
 }
 body .converter .dropdown .split-button-drops .btn-wid .generate-country ul {
   list-style-type: none;
 }
 body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li {
-  font-size: 14px;
-  color: white;
-  padding: 5px;
-  border-bottom: 1px solid white;
+  padding: 8px 0;
   cursor: pointer;
   transition: all 0.1s ease;
 }
@@ -312,6 +310,19 @@ body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li:h
   color: black;
   background-color: rgb(168, 166, 166);
   border-bottom: rgb(168, 166, 166);
+}
+body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li p {
+  display: inline;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li span {
+  float: right;
+}
+body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li span img {
+  width: 30px;
+  margin-right: 12px;
 }
 body .converter .dropdown .split-button-drops .btn-wid .currency-input-container {
   display: inline;
@@ -325,20 +336,27 @@ body .converter .dropdown .split-button-drops .btn-wid .currency-input-container
   outline: none;
   width: 88%;
   padding: 15px 0;
-  font-size: 30px;
-  color: red;
+  font-size: 60px;
+  font-weight: 100;
+  color: #6ec6af;
+}
+body .converter .dropdown .split-button-drops .btn-wid .currency-input-container .currency-input::placeholder {
+  color: rgba(85, 82, 82, 0.313);
+  font-weight: 100;
 }
 body .converter .dropdown .split-button-drops .revert span {
-  background: white;
-  border-radius: 15px;
+  background: rgba(186, 186, 186, 0.5921568627);
+  border-radius: 20px;
   padding: 5px;
-  font-size: 12px;
+  font-size: 20px;
   transition: all 0.1s ease;
   cursor: pointer;
+  color: #fff;
 }
 body .converter .dropdown .split-button-drops .revert span:hover {
-  color: blue;
+  color: #6ec6af;
   transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.5921568627);
 }
 body .converter .dropdown .split-button-drops .revert:hover {
   transform: scale(1.1);
