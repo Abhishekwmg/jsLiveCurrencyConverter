@@ -454,7 +454,7 @@ body {
 
                             img {
                                 width: 30px;
-                                border: 1px solid #ffffff2e;
+                                border: 1px solid #0000002e;
                                 border-radius: 15px;
 
                             }
@@ -536,6 +536,12 @@ body {
 
 
                         }
+
+                        input[type="number"]::-webkit-outer-spin-button,
+                        input[type="number"]::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
                     }
                 }
 
@@ -555,6 +561,7 @@ body {
                             color: #6ec6af;
                             transform: scale(1.1);
                             background: #ffffff97;
+                            border: 1px solid #bababa97;
                         }
 
                     }

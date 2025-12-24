@@ -70,9 +70,9 @@
         </div>
         <div class="dropdown">
             <div class="split-button-drops">
-                <div class="btn-wid">
+                <div id="btn-source-model" class="btn-wid">
                     <label for="for">From</label>
-                    <button id="source-btn" type="button">
+                    <button class="src-btn" type="button">
                         <p>USD - Dollar</p>
                         <div class="moto">
                             <img src="./imgs/country-icons/usa.png" alt="">
@@ -81,19 +81,19 @@
                             </span>
                         </div>
                     </button>
-                    <div id="source-country-dropdown" class="generate-country">
-                        <ul id="currency-country-list">
+                    <div id="src-country-dropdown" class="generate-country">
+                        <ul class="source-currency-country-list">
                         </ul>
                     </div>
-                    <div class="currency-input-container">
-                        <label class="curr-sign" for="currency-sign">$</label>
+                    <div id="src-curr-inp-container" class="currency-input-container">
+                        <label id="src-curr-icon" class="curr-sign" for="currency-sign">$</label>
                         <input class="currency-input" type="number" placeholder="5000">
                     </div>
                 </div>
                 <div class="revert"><span><i class="fa-solid fa-right-left"></i></span></div>
-                <div class="btn-wid">
+                <div id="btn-target-model" class="btn-wid">
                     <label for="for">To</label>
-                    <button type="button">
+                    <button id="target-btn" type="button">
                         <p>USD - Dollar</p>
                         <div class="moto">
                             <img src="./imgs/country-icons/usa.png" alt="">
@@ -102,10 +102,10 @@
                             </span>
                         </div>
                     </button>
-                    <!-- <div class="generate-country">
+                    <div id="target-country-dropdown" class="generate-country">
                         <ul id="currency-country-list">
                         </ul>
-                    </div> -->
+                    </div>
                     <div class="currency-input-container">
                         <label class="curr-sign" for="currency-sign">$</label>
                         <input class="currency-input" type="number" placeholder="5000">

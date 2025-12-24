@@ -280,7 +280,7 @@ body .converter .dropdown .split-button-drops .btn-wid button .moto {
 }
 body .converter .dropdown .split-button-drops .btn-wid button .moto img {
   width: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1803921569);
+  border: 1px solid rgba(0, 0, 0, 0.1803921569);
   border-radius: 15px;
 }
 body .converter .dropdown .split-button-drops .btn-wid button .moto span i {
@@ -345,6 +345,11 @@ body .converter .dropdown .split-button-drops .btn-wid .currency-input-container
   color: rgba(85, 82, 82, 0.313);
   font-weight: 100;
 }
+body .converter .dropdown .split-button-drops .btn-wid .currency-input-container input[type=number]::-webkit-outer-spin-button,
+body .converter .dropdown .split-button-drops .btn-wid .currency-input-container input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 body .converter .dropdown .split-button-drops .revert span {
   background: rgba(186, 186, 186, 0.5921568627);
   border-radius: 20px;
@@ -358,6 +363,7 @@ body .converter .dropdown .split-button-drops .revert span:hover {
   color: #6ec6af;
   transform: scale(1.1);
   background: rgba(255, 255, 255, 0.5921568627);
+  border: 1px solid rgba(186, 186, 186, 0.5921568627);
 }
 body .converter .dropdown .split-button-drops .revert:hover {
   transform: scale(1.1);
