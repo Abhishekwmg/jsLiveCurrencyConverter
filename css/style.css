@@ -243,6 +243,7 @@ body .converter .dropdown .split-button-drops {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row;
 }
 body .converter .dropdown .split-button-drops .btn-wid {
   width: 350px;
@@ -288,6 +289,7 @@ body .converter .dropdown .split-button-drops .btn-wid button .moto span i {
 }
 body .converter .dropdown .split-button-drops .btn-wid .generate-country.show {
   display: block;
+  background-color: #dbdbdb;
 }
 body .converter .dropdown .split-button-drops .btn-wid .generate-country {
   display: none;
@@ -296,7 +298,6 @@ body .converter .dropdown .split-button-drops .btn-wid .generate-country {
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: rgba(66, 66, 66, 0.524) transparent;
-  margin-top: 10px;
 }
 body .converter .dropdown .split-button-drops .btn-wid .generate-country ul {
   list-style-type: none;

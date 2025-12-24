@@ -181,14 +181,35 @@ sourceBtn.addEventListener('click', () => {
 
     countryList.forEach((countries) => {
         const { currency, country, country_img } = countries;
-        currencyCountryList.innerHTML += `<li>
+        currencyCountryList.innerHTML += `<li data-currency="${currency}" data-icon="${country_img}">
                                 <p>${currency}</p>
-                                <span><img src=${country_img} alt=${country}></span>
+                                <span><img src="${country_img}" alt="${country}"></span>
                             </li>`
     })
-
-
-    // currencyCountryList.innerHTML = ``
 })
 
-//adding currency countries to the dropdown
+currencyCountryList.addEventListener("click", (e) => {
+    const liEl = e.target.closest("li");
+
+    if (!liEl) return;
+
+    const chosenCurr = e.target.dataset.currency;
+    const currIcon = e.target.dataset.icon;
+    sourceBtn.innerHTML = `
+                        <p>${chosenCurr}</p>
+                        <div class="moto">
+                            <img src="${currIcon}" alt="${chosenCurr}">
+                            <span>
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </div>
+                    `;
+
+})
+
+const revertCurr = document.querySelector('.revert');
+revertCurr.addEventListener('click', (e) => {
+    console.log("clicked")
+    const revertEl = document.querySelector('.split-button-drops');
+    revertEl.style.flexDirection = revertEl.style.flexDirection === "row" ? "row-reverse" : "row";
+})

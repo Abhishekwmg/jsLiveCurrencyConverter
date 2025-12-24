@@ -415,6 +415,7 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                flex-direction: row;
 
                 .btn-wid {
                     width: 350px;
@@ -467,6 +468,7 @@ body {
 
                     .generate-country.show {
                         display: block;
+                        background-color: #dbdbdb;
                     }
 
                     .generate-country {
@@ -476,7 +478,6 @@ body {
                         overflow-x: hidden;
                         scrollbar-width: thin;
                         scrollbar-color: rgba(66, 66, 66, 0.524) transparent;
-                        margin-top: 10px;
 
                         ul {
                             list-style-type: none;
