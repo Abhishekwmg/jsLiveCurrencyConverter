@@ -211,7 +211,7 @@ const sourceCurrencySign = document.querySelector("#source-curr-sign");
 let sourceCurrency;
 let targetCurrency;
 
-let conversionPrice = async function fetchCurrDetails(source, target) {
+async function fetchCurrDetails(source, target) {
     const getData = await fetch(`https://hexarate.paikama.co/api/rates/${source}/${target}/latest`);
     const data = await getData.json();
     return data.data.mid;
@@ -300,14 +300,18 @@ targetBtn.addEventListener('click', () => {
 
 const currInp = document.querySelector(".currency-input");
 
-currInp.addEventListener("input", (e) => {
+currInp.addEventListener("input", async (e) => {
 
     let eva = Number(e.target.value);
 
     if (eva) {
-        const data = conversionPrice(sourceCurrency, targetCurrency);
-        console.log(typeof eva);
-        document.querySelector('#target-currency-converted').textContent = eva * data;
+        const data = await fetchCurrDetails(sourceCurrency, targetCurrency);
+        // console.log(typeof eva);
+        // console.log(data);
+        document.querySelector('#target-currency-converted').value = (eva * data).toFixed(2);
+    }
+    if (!eva) {
+        document.querySelector('#target-currency-converted').value = "";
     }
 })
 
