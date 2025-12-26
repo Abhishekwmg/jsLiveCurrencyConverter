@@ -288,6 +288,8 @@ body .converter .dropdown .split-button-drops .btn-wid button .moto span i {
   text-align: center;
 }
 body .converter .dropdown .split-button-drops .btn-wid .generate-country.show {
+  position: fixed;
+  min-width: 350px;
   display: block;
   background-color: #dbdbdb;
 }
@@ -326,7 +328,7 @@ body .converter .dropdown .split-button-drops .btn-wid .generate-country ul li s
   margin-right: 12px;
 }
 body .converter .dropdown .split-button-drops .btn-wid .currency-input-container {
-  display: inline;
+  display: none;
 }
 body .converter .dropdown .split-button-drops .btn-wid .currency-input-container .curr-sign {
   font-size: 60px;

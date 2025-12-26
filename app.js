@@ -1,20 +1,5 @@
 import { countryList } from "./data/countries.js";
 import { cities } from "./data/cities.js";
-// const options = {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json',
-//         'apy-token': 'APY0GWx2bR1QV3Z9OD6gOqW0zEpS4kXitBSOQY0NwCSEKjFfdAmOSCnxw2KVUpNS'
-//     },
-//     body: '{"source":"eur","target":"inr"}'
-// };
-
-// fetch('https://api.apyhub.com/data/convert/currency', options)
-//     .then(response => response.json())
-//     .then(response => console.log(response))
-//     .catch(err => console.error(err));
-
-
 
 const pageLogo = document.querySelector('#page-logo');
 const dialogBox = document.querySelector('#dialog-box');
@@ -26,23 +11,19 @@ const suggestions = document.querySelector('.suggestions')
 const citySelect = document.querySelector('.city-select');
 
 
+//handling modal open/close
 chooseCityBtn.addEventListener('click', (e) => {
     e.preventDefault();
     dialogBox.showModal();
 })
 
 closeModal.addEventListener('click', () => dialogBox.close())
-// pageLogo.src = countryList[19].country_img;
 
-const citiesSuggestion = [];
 
+//filtering city suggestions
 cityInput.addEventListener('input', (e) => {
     let enteredCity = e.target.value.toLowerCase();
     let suggestedCity = cities.filter((city) => city.city.toLowerCase().startsWith(enteredCity) || city.country.toLowerCase().startsWith(enteredCity));
-
-    // const [city] = suggestedCity;
-
-
     suggestions.innerHTML = "";
     if (!enteredCity) return;
 
@@ -207,10 +188,16 @@ const sourceCurrencyCountryList = document.querySelector("#source-currency-count
 const sourceCurrencySign = document.querySelector("#source-curr-sign");
 
 
+//source input
+const currInp = document.querySelector(".currency-input");
+const targetInp = document.querySelector('#target-currency-converted');
+
+
 
 let sourceCurrency;
 let targetCurrency;
 
+//fetching currency exchange rate
 async function fetchCurrDetails(source, target) {
     const getData = await fetch(`https://hexarate.paikama.co/api/rates/${source}/${target}/latest`);
     const data = await getData.json();
@@ -250,8 +237,11 @@ srcBtn.addEventListener('click', () => {
                                 <i class="fa-solid fa-caret-down"></i>
                             </span>
                         </div>`
+        currInp.value = "";
+        targetInp.value = "";
         generateCountry.classList.remove("show");
         srcCurrIcon.textContent = symbol;
+        document.querySelector('.currency-input-container').style.display = "inline";
         sourceCurrency = srcCurrCode;
     })
 });
@@ -291,27 +281,34 @@ targetBtn.addEventListener('click', () => {
                                 <i class="fa-solid fa-caret-down"></i>
                             </span>
                         </div>`
+        currInp.value = "";
+        targetInp.value = "";
         targetDropdown.classList.remove("show");
         targetCurrIcon.textContent = symbol;
         targetCurrency = targetCurrCode;
+        document.querySelector('#currency-target-container').style.display = "inline";
     })
 });
 
 
-const currInp = document.querySelector(".currency-input");
 
-currInp.addEventListener("input", async (e) => {
-
-    let eva = Number(e.target.value);
-
-    if (eva) {
-        const data = await fetchCurrDetails(sourceCurrency, targetCurrency);
-        // console.log(typeof eva);
-        // console.log(data);
-        document.querySelector('#target-currency-converted').value = (eva * data).toFixed(2);
-    }
-    if (!eva) {
-        document.querySelector('#target-currency-converted').value = "";
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    sourceInputAction();
 })
 
+function sourceInputAction() {
+    currInp.addEventListener("input", async (e) => {
+
+        let eva = Number(e.target.value);
+
+        if (eva) {
+            const data = await fetchCurrDetails(sourceCurrency, targetCurrency);
+            // console.log(typeof eva);
+            // console.log(data);
+            targetInp.value = (eva * data).toFixed(2);
+        }
+        if (!eva) {
+            targetInp.value = "";
+        }
+    })
+}
