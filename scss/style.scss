@@ -417,6 +417,10 @@ body {
                 justify-content: space-between;
                 flex-direction: row;
 
+                @include mixins.respond-between(mobile-sm, tablet) {
+                    flex-direction: column;
+                }
+
                 .btn-wid {
                     width: 350px;
                     margin-top: 10px;

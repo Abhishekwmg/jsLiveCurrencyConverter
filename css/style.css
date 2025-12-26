@@ -245,6 +245,11 @@ body .converter .dropdown .split-button-drops {
   justify-content: space-between;
   flex-direction: row;
 }
+@media (min-width: 320px) and (max-width: 767px) {
+  body .converter .dropdown .split-button-drops {
+    flex-direction: column;
+  }
+}
 body .converter .dropdown .split-button-drops .btn-wid {
   width: 350px;
   margin-top: 10px;

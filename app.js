@@ -10,17 +10,43 @@ const suggestedCities = document.querySelector('.suggested-cities');
 const suggestions = document.querySelector('.suggestions')
 const citySelect = document.querySelector('.city-select');
 
+const targetBtn = document.querySelector('#target-btn');
+const targetDropdown = document.querySelector('#target-country-dropdown');
+const targetCurrCountryList = document.querySelector('#target-currency-country-list');
+const targetCurrIcon = document.querySelector('#target-curr-icon');
 
-//handling modal open/close
+
+const dateEl = document.querySelectorAll('.timezone-date');
+const timeEl = document.querySelectorAll('.timezone-curr-time');
+
+const mobileMenu = document.querySelector('.fa-bars-staggered');
+const menuOpen = document.querySelector('.menu-open');
+const closeMenu = document.querySelector('.close-menu');
+
+const btnSourceModel = document.querySelector("#btn-source-model");
+const sourceBtn = document.querySelector('#src-btn');
+const sourceCountryDropdown = document.querySelector("#src-country-dropdown");
+const sourceCurrencyCountryList = document.querySelector("#source-currency-country-list");
+const sourceCurrencySign = document.querySelector("#source-curr-sign");
+
+const currInp = document.querySelector(".currency-input");
+const targetInp = document.querySelector('#target-currency-converted');
+
+
+const srcBtn = document.querySelector('.src-btn');
+const generateCountry = document.querySelector('.generate-country');
+const srcCurrencyCountryList = document.querySelector('.source-currency-country-list');
+const srcCurrIcon = document.querySelector('#src-curr-icon');
+
+
 chooseCityBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
     dialogBox.showModal();
 })
 
 closeModal.addEventListener('click', () => dialogBox.close())
 
-
-//filtering city suggestions
 cityInput.addEventListener('input', (e) => {
     let enteredCity = e.target.value.toLowerCase();
     let suggestedCity = cities.filter((city) => city.city.toLowerCase().startsWith(enteredCity) || city.country.toLowerCase().startsWith(enteredCity));
@@ -45,9 +71,6 @@ suggestions.addEventListener('click', (e) => {
     dialogBox.close();
 })
 
-
-const dateEl = document.querySelectorAll('.timezone-date');
-const timeEl = document.querySelectorAll('.timezone-curr-time');
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
     weekday: "long",
@@ -78,136 +101,33 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 
-const mobileMenu = document.querySelector('.mobile-menu');
-const menuOpen = document.querySelector('.menu-open');
-const closeMenu = document.querySelector('.close-menu');
 
 mobileMenu.addEventListener('click', (e) => {
-    // menuOpen.classList.add('show')
-    if (menuOpen.classList.contains('show')) {
-        menuOpen.classList.remove('show')
-    } else {
-        menuOpen.classList.add('show')
-    }
+    menuOpen.classList.toggle('show');
 })
 
 closeMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
     menuOpen.classList.remove('show')
 })
-
-// const sourceBtn = document.querySelectorAll('#source-btn');
-// const sourceCountryDropdown = document.querySelectorAll('#source-country-dropdown');
-// const currencyCountryList = document.querySelectorAll('#currency-country-list');
-// const currencySymbol = document.querySelectorAll('.curr-sign');
-
-
-// sourceBtn.forEach((srcbtn) => {
-//     srcbtn.addEventListener('click', () => {
-
-//         sourceCountryDropdown.forEach((srcdrop) => {
-//             if (srcdrop.classList.contains("show")) {
-//                 srcdrop.classList.remove("show")
-//             } else {
-//                 srcdrop.classList.add("show")
-//             }
-//         })
-
-//         currencyCountryList.innerHTML = "";
-
-//         countryList.forEach((countries) => {
-//             const { currency, country, country_img, symbol } = countries;
-//             currencyCountryList.forEach((cl) => {
-//                 cl.insertAdjacentHTML('beforeend', `<li data-currency="${currency}" data-icon="${country_img}" data-symbol="${symbol}">
-//                                 <p>${currency}</p>
-//                                 <span><img src="${country_img}" alt="${country}"></span>
-//                             </li>` );
-//             })
-//         })
-//     })
-// })
-
-// currencyCountryList.innerHTML = "";
-
-// currencyCountryList.forEach((list) => {
-//     list.addEventListener("click", (e) => {
-//         const liEl = e.target.closest("li");
-
-//         if (!liEl) return;
-
-//         const chosenCurr = liEl.dataset.currency;
-//         const currIcon = liEl.dataset.icon;
-//         const currSymbol = liEl.dataset.symbol;
-//         console.log(currSymbol);
-//         sourceBtn.forEach((srcbtns) => {
-//             srcbtns.innerHTML = `
-//                         <p>${chosenCurr}</p>
-//                         <div class="moto">
-//                             <img src="${currIcon}" alt="${chosenCurr}">
-//                             <span>
-//                                 <i class="fa-solid fa-caret-down"></i>
-//                             </span>
-//                         </div>
-//                     `;
-//         })
-//         currencySymbol.textContent = currSymbol;
-//         sourceCountryDropdown.forEach((sc) => {
-//             sc.classList.remove("show")
-//         })
-
-//     })
-// })
-
-// const revertCurr = document.querySelector('.revert');
-// revertCurr.addEventListener('click', (e) => {
-//     console.log("clicked")
-//     const revertEl = document.querySelector('.split-button-drops');
-//     revertEl.style.flexDirection = revertEl.style.flexDirection === "row-reverse" ? "row" : "row-reverse";
-// })
-
-// //New Logic
-
-// document.querySelectorAll('.btn-wid').forEach((btns) => {
-//     const srcBtn = document.querySelector('.source-btn');
-//     const genCountry = document.querySelector('.generate-country');
-//     const currCountryList = document.querySelector('.currency-country-list');
-//     const currSign = document.querySelector('.curr-sign');
-
-//     srcBtn.addEventListener('click', () => {
-
-//         genCountry.classList.toggle("show");
-//     })
-
-// })
-
-
-const btnSourceModel = document.querySelector("#btn-source-model");
-const sourceBtn = document.querySelector('#src-btn');
-const sourceCountryDropdown = document.querySelector("#src-country-dropdown");
-const sourceCurrencyCountryList = document.querySelector("#source-currency-country-list");
-const sourceCurrencySign = document.querySelector("#source-curr-sign");
-
-
-//source input
-const currInp = document.querySelector(".currency-input");
-const targetInp = document.querySelector('#target-currency-converted');
 
 
 
 let sourceCurrency;
 let targetCurrency;
 
-//fetching currency exchange rate
 async function fetchCurrDetails(source, target) {
-    const getData = await fetch(`https://hexarate.paikama.co/api/rates/${source}/${target}/latest`);
-    const data = await getData.json();
-    return data.data.mid;
+
+    try {
+
+        const getData = await fetch(`https://hexarate.paikama.co/api/rates/${source}/${target}/latest`);
+        const data = await getData.json();
+        return data.data.mid;
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
-const srcBtn = document.querySelector('.src-btn');
-const generateCountry = document.querySelector('.generate-country');
-const srcCurrencyCountryList = document.querySelector('.source-currency-country-list');
-const srcCurrIcon = document.querySelector('#src-curr-icon');
 
 srcBtn.addEventListener('click', () => {
     generateCountry.classList.toggle("show");
@@ -246,10 +166,6 @@ srcBtn.addEventListener('click', () => {
     })
 });
 
-const targetBtn = document.querySelector('#target-btn');
-const targetDropdown = document.querySelector('#target-country-dropdown');
-const targetCurrCountryList = document.querySelector('#target-currency-country-list');
-const targetCurrIcon = document.querySelector('#target-curr-icon');
 
 targetBtn.addEventListener('click', () => {
     targetDropdown.classList.toggle("show");
@@ -303,8 +219,6 @@ function sourceInputAction() {
 
         if (eva) {
             const data = await fetchCurrDetails(sourceCurrency, targetCurrency);
-            // console.log(typeof eva);
-            // console.log(data);
             targetInp.value = (eva * data).toFixed(2);
         }
         if (!eva) {
