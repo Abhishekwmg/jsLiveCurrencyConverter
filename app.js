@@ -208,31 +208,15 @@ const sourceCurrencySign = document.querySelector("#source-curr-sign");
 
 
 
-async function fetchCurrDetails(source, target) {
-
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'apy-token': 'APY0GWx2bR1QV3Z9OD6gOqW0zEpS4kXitBSOQY0NwCSEKjFfdAmOSCnxw2KVUpNS'
-        },
-        body: JSON.stringify({ "source": source, "target": target })
-    };
-    const getData = await fetch('https://api.apyhub.com/data/convert/currency', options);
-    const data = await getData.json();
-    console.log(data);
-}
-
-// fetchCurrDetails("USD", "BTC");
-
-
 let sourceCurrency;
 let targetCurrency;
 
-//code for handling the sourceCurrency,
-//end goal is to get the source currency selected:
+let conversionPrice = async function fetchCurrDetails(source, target) {
+    const getData = await fetch(`https://hexarate.paikama.co/api/rates/${source}/${target}/latest`);
+    const data = await getData.json();
+    return data.data.mid;
+}
 
-//selection of elements;
 const srcBtn = document.querySelector('.src-btn');
 const generateCountry = document.querySelector('.generate-country');
 const srcCurrencyCountryList = document.querySelector('.source-currency-country-list');
@@ -272,17 +256,58 @@ srcBtn.addEventListener('click', () => {
     })
 });
 
+const targetBtn = document.querySelector('#target-btn');
+const targetDropdown = document.querySelector('#target-country-dropdown');
+const targetCurrCountryList = document.querySelector('#target-currency-country-list');
+const targetCurrIcon = document.querySelector('#target-curr-icon');
+
+targetBtn.addEventListener('click', () => {
+    targetDropdown.classList.toggle("show");
+    targetCurrCountryList.innerHTML = "";
+    countryList.forEach(({ currency, country_img, country, symbol, currency_code }) => {
+        targetCurrCountryList.insertAdjacentHTML('beforeend', `<li data-targetcurrency="${currency}" data-targeticon="${country_img}" data-targetcurrcode="${currency_code}" data-targetsymbol="${symbol}">
+                                <p>${currency}</p>
+                                 <span><img src="${country_img}" alt="${country}"></span>
+                             </li>`);
+    })
+
+    targetCurrCountryList.addEventListener('click', (e) => {
+        let liEl = e.target.closest('li');
+
+        if (!liEl) return;
+
+        let currency = liEl.dataset.targetcurrency;
+        let country = liEl.dataset.country;
+        let symbol = liEl.dataset.targetsymbol;
+        let currImg = liEl.dataset.targeticon
+        let targetCurrCode = liEl.dataset.targetcurrcode;
+
+        if (!liEl) return;
+
+        targetBtn.innerHTML = `<p>${currency}</p>
+                        <div class="moto">
+                            <img src="${currImg}" alt="">
+                            <span>
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </div>`
+        targetDropdown.classList.remove("show");
+        targetCurrIcon.textContent = symbol;
+        targetCurrency = targetCurrCode;
+    })
+});
 
 
+const currInp = document.querySelector(".currency-input");
 
-//code for handling targetCurrency
-//end goal is to get the target currency
+currInp.addEventListener("input", (e) => {
 
+    let eva = Number(e.target.value);
 
-//code structure
-//sourceCurrencyBtn -> Click Event -> Open a custom dropdown -> Select currency from that dropdown -> update sourceCurrencyBtn text && update global sourceCurrency value
-//same for the targetCurrencyBtn
+    if (eva) {
+        const data = conversionPrice(sourceCurrency, targetCurrency);
+        console.log(typeof eva);
+        document.querySelector('#target-currency-converted').textContent = eva * data;
+    }
+})
 
-// once sourceCurrency and targetCurrency is matched
-// run the fetchCurrencyData function to get the exchange rate
-//calculate and update UI
